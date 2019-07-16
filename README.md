@@ -4,13 +4,6 @@
 
 ![](https://github.com/HotBitmapGG/OhMyBiliBili/blob/OhMyBiliBili/art/bg2.png?raw=true)
 
-
-
-## Introduction
-
-目前发现很多朋友反馈接口返回失败，接口挂掉，低版本的机型适配，无法播放视频等问题，我后期会抽时间进行修改，也欢迎pr，issues.
-
-
 ## Screenshots
 
 <a href="art/00.png"><img src="art/00.png" width="30%"/></a> <a href="art/01.png"><img src="art/01.png" width="30%"/></a> <a href="art/02.png"><img src="art/02.png" width="30%"/></a>
@@ -78,7 +71,11 @@
 
 The project only for the use of exchange of learning, such as the project have bilibili copyright infringement problem, I will delete this page and the whole project in time.
 
+## Recommend
 
+![Acg-community](https://github.com/HotBitmapGG/Acg)
+
+The old driver, hurry to get on the bus~!
 
 ## About me
 

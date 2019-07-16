@@ -10,41 +10,39 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hotbitmapgg.bilibili.adapter.helper.AbsRecyclerViewAdapter;
-import com.hotbitmapgg.bilibili.entity.discover.OriginalRankInfo;
+import com.hotbitmapgg.bilibili.entity.discover.AllareasRankInfo;
 import com.hotbitmapgg.ohmybilibili.R;
 
 import java.util.List;
 
 /**
- * Created by hcc on 2016/9/22 19:30
+ * Created by hcc on 16/8/4 14:12
  * 100332338@qq.com
- * <p>
- * 原创排行榜Adapter
+ * <p/>
+ * 全区排行榜adapter
  */
+public class AllAreasRankAdapter extends AbsRecyclerViewAdapter {
+    private List<AllareasRankInfo.RankBean.ListBean> allRanks;
 
-public class OriginalRankAdapter extends AbsRecyclerViewAdapter {
-    private List<OriginalRankInfo.RankBean.ListBean> originalRanks;
-
-    public OriginalRankAdapter(RecyclerView recyclerView, List<OriginalRankInfo.RankBean.ListBean> originalRanks) {
+    public AllAreasRankAdapter(RecyclerView recyclerView, List<AllareasRankInfo.RankBean.ListBean> allRanks) {
         super(recyclerView);
-        this.originalRanks = originalRanks;
+        this.allRanks = allRanks;
     }
 
 
     @Override
     public ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
-        return new OriginalRankAdapter.ItemViewHolder(LayoutInflater.from(getContext())
+        return new ItemViewHolder(LayoutInflater.from(getContext())
                 .inflate(R.layout.item_rank_video, parent, false));
     }
 
 
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
-        if (holder instanceof OriginalRankAdapter.ItemViewHolder) {
-            OriginalRankAdapter.ItemViewHolder itemViewHolder
-                    = (OriginalRankAdapter.ItemViewHolder) holder;
-            OriginalRankInfo.RankBean.ListBean listBean = originalRanks.get(position);
+        if (holder instanceof ItemViewHolder) {
+            ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+            AllareasRankInfo.RankBean.ListBean listBean = allRanks.get(position);
             itemViewHolder.mVideoTitle.setText(listBean.getTitle());
             itemViewHolder.mVideoPlayNum.setText(String.valueOf(listBean.getPlay()));
             itemViewHolder.mVideoReviewCount.setText(String.valueOf(listBean.getVideo_review()));
@@ -64,7 +62,7 @@ public class OriginalRankAdapter extends AbsRecyclerViewAdapter {
     }
 
 
-    private void setSortNumTextSize(OriginalRankAdapter.ItemViewHolder itemViewHolder, int position) {
+    private void setSortNumTextSize(ItemViewHolder itemViewHolder, int position) {
         if (position == 0) {
             itemViewHolder.mSortNum.setTextSize(24);
             itemViewHolder.mSortNum.setTextColor(
@@ -87,7 +85,7 @@ public class OriginalRankAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        return originalRanks.size();
+        return allRanks.size();
     }
 
 
@@ -99,6 +97,7 @@ public class OriginalRankAdapter extends AbsRecyclerViewAdapter {
         TextView mVideoReviewCount;
         TextView mSortNum;
         TextView mUserName;
+
 
         public ItemViewHolder(View itemView) {
             super(itemView);
